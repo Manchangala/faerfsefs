@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Choose Delivery{% endblock %}
+
+{% block step_indicators %}
+<div class="step-indicators mb-4">
+    <span class="{% if step >= 1 %}step-complete{% else %}step-incomplete{% endif %}">Step 1: Select Products</span> |
+    <span class="{% if step >= 2 %}step-complete{% else %}step-incomplete{% endif %}">Step 2: Confirm and Customize</span> |
+    <span class="{% if step >= 3 %}step-complete{% else %}step-incomplete{% endif %}">Step 3: Choose Delivery</span> |
+    <span class="step-incomplete">Step 4: Payment</span>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Choose Delivery Method</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="radio" name="delivery_choice" value="store" id="store">
+        <label for="store">Pick up in store</label>
+    </div>
+    <div class="form-group">
+        <input type="radio" name="delivery_choice" value="home" id="home">
+        <label for="home">Home delivery</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Next</button>
+</form>
+{% endblock %}

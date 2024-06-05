@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Your Cart{% endblock %}
+
+{% block step_indicators %}
+<div class="step-indicators mb-4">
+    <span class="step-complete">Step 1: Select Products</span> |
+    <span class="step-incomplete">Step 2: Confirm and Customize</span> |
+    <span class="step-incomplete">Step 3: Choose Delivery</span> |
+    <span class="step-incomplete">Step 4: Payment</span>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Your Cart</h1>
+{% if cart.items.count == 0 %}
+<p class="text-center">Your cart is empty.</p>
+{% else %}
+<form method="post" action="{% url 'confirm_order' %}">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart.items.all %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Confirm Order</button>
+</form>
+{% endif %}
+{% endblock %}

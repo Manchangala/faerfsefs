@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Orders Per Product{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Orders Per Product</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Order Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in orders_per_product %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.order_count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'admin_reports' %}" class="btn btn-secondary">Back to Reports</a>
+{% endblock %}

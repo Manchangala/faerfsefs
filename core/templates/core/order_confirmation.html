@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block step_indicators %}
+<div class="step-indicators mb-4">
+    <span class="step-complete">Step 1: Select Products</span> |
+    <span class="step-complete">Step 2: Confirm and Customize</span> |
+    <span class="step-complete">Step 3: Choose Delivery</span> |
+    <span class="step-complete">Step 4: Payment</span>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Order Confirmation</h1>
+<p class="text-center">Thank you for your order! Your order number is {{ order.id }}.</p>
+{% endblock %}

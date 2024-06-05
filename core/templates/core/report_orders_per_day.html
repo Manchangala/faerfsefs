@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Orders Per Day{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Orders Per Day (Last 30 Days)</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Order Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders_per_day %}
+        <tr>
+            <td>{{ order.day }}</td>
+            <td>{{ order.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'admin_reports' %}" class="btn btn-secondary">Back to Reports</a>
+{% endblock %}

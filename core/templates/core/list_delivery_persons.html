@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>List of Delivery Persons</h2>
+    <a href="{% url 'create_delivery_person' %}" class="btn btn-primary mb-3">Add New Delivery Person</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Vehicle Type</th>
+                <th>License Number</th>
+                <th>License Expiry</th>
+                <th>Availability Hours</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in delivery_persons %}
+            <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.vehicle_type }}</td>
+                <td>{{ person.license_number }}</td>
+                <td>{{ person.license_expiry }}</td>
+                <td>{{ person.availability_hours }}</td>
+                <td>
+                    <a href="{% url 'delete_delivery_person' person.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Admin Reports{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Reports</h1>
+<div class="text-center">
+    <a href="{% url 'report_orders_per_day' %}" class="btn btn-primary">Orders Per Day</a>
+    <a href="{% url 'report_popular_products' %}" class="btn btn-primary">Popular Products</a>
+    <a href="{% url 'report_orders_per_product' %}" class="btn btn-primary">Orders Per Product</a>
+    <a href="{% url 'report_orders_in_period' %}" class="btn btn-primary">Orders in Period</a>
+</div>
+{% endblock %}

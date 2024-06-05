@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .dashboard-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .dashboard-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dashboard-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <a href="{% url 'admin_products' %}" class="dashboard-button">Manage Products</a>
+        <a href="{% url 'admin_orders' %}" class="dashboard-button">View Orders</a>
+        <a href="{% url 'admin_reports' %}" class="dashboard-button">View Reports</a>
+        <a href="{% url 'list_delivery_persons' %}" class="dashboard-button">Manage Delivery Persons</a>
+    </div>
+</body>
+</html>
